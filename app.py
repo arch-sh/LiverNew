@@ -63,9 +63,9 @@ if st.button("Predict"):
     prediction = model.predict(input_df)
 
     # Output result
-    if prediction[0] == 0:
+    if prediction[0]  < 0.33:
         st.success("🟢 Low Risk – You're likely healthy.")
-    elif prediction[0] == 1:
+    elif prediction[0] < 0.66:
         st.warning("🟠 Moderate Risk – Consider lifestyle changes and regular check-ups.")
     else:
         st.error("🔴 High Risk – Please consult a liver specialist immediately.")
